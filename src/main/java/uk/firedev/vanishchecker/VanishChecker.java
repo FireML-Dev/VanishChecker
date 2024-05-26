@@ -2,6 +2,7 @@ package uk.firedev.vanishchecker;
 
 import com.Zrips.CMI.Containers.CMIUser;
 import com.earth2me.essentials.Essentials;
+import com.earth2me.essentials.User;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.MetadataValue;
@@ -27,7 +28,10 @@ public class VanishChecker {
             Plugin plugin = Bukkit.getPluginManager().getPlugin("Essentials");
             if (plugin instanceof Essentials) {
                 Essentials essentials = (Essentials) plugin;
-                return essentials.getOfflineUser(player.getName()).isVanished();
+                User user = essentials.getUser(player);
+                if (user != null) {
+                    return user.isVanished();
+                }
             }
         }
         return false;
@@ -40,7 +44,10 @@ public class VanishChecker {
      */
     public static boolean isCMIVanished(@NotNull Player player) {
         if (Bukkit.getPluginManager().isPluginEnabled("CMI")) {
-            return CMIUser.getUser(player).isCMIVanished();
+            CMIUser user = CMIUser.getUser(player);
+            if (user != null) {
+                return user.isCMIVanished();
+            }
         }
         return false;
     }
@@ -59,16 +66,16 @@ public class VanishChecker {
     }
 
     /**
-     * Filters the provided list to remove all unvanished players.
+     * Filters the provided list to only contain vanished players.
      * @param players The list to filter.
-     * @return The filtered list, with all unvanished players removed.
+     * @return The filtered list, only keeping vanished players.
      */
     public static List<Player> getVanishedPlayersFromList(@NotNull List<Player> players) {
         return players.stream().filter(VanishChecker::isVanished).collect(Collectors.toList());
     }
 
     /**
-     * Filters the list of online players to remove unvanished players.
+     * Filters the list of online players to only contain those who are vanished.
      * @return A list of all online players who are vanished.
      */
     public static List<Player> getVanishedOnlinePlayers() {
@@ -76,19 +83,19 @@ public class VanishChecker {
     }
 
     /**
-     * Filters the provided list to remove all vanished players.
+     * Filters the provided list to only contain visible players.
      * @param players The list to filter.
-     * @return The filtered list, with all vanished players removed.
+     * @return The filtered list, only keeping visible players.
      */
-    public static List<Player> getUnvanishedPlayersFromList(@NotNull List<Player> players) {
+    public static List<Player> getVisiblePlayersFromList(@NotNull List<Player> players) {
         return players.stream().filter(player -> !isVanished(player)).collect(Collectors.toList());
     }
 
     /**
-     * Filters the list of online players to remove vanished players.
-     * @return A list of all online players who are unvanished.
+     * Filters the list of online players to only contain those who are visible.
+     * @return A list of all online players who are visible.
      */
-    public static List<Player> getUnvanishedOnlinePlayers() {
+    public static List<Player> getVisibleOnlinePlayers() {
         return Bukkit.getOnlinePlayers().stream().filter(player -> !isVanished(player)).collect(Collectors.toList());
     }
 
