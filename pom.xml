@@ -55,11 +55,11 @@
   <distributionManagement>
       <snapshotRepository>
           <id>firedev.repo</id>
-          <url>https://repo.firedev.uk/snapshots/</url>
+          <url>https://repo.firedev.uk/repository/maven-snapshots/</url>
       </snapshotRepository>
       <repository>
           <id>firedev.repo</id>
-          <url>https://repo.firedev.uk/releases/</url>
+          <url>https://repo.firedev.uk/repository/maven-releases/</url>
       </repository>
   </distributionManagement>
 
@@ -71,8 +71,8 @@
       </repository>
       <!-- CMI API -->
       <repository>
-          <id>firedev-releases</id>
-          <url>https://repo.firedev.uk/releases/</url>
+          <id>firedev-repo</id>
+          <url>https://repo.firedev.uk/repository/maven-public/</url>
       </repository>
       <!-- EssentialsX API -->
       <repository>
