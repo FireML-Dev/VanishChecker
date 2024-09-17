@@ -9,6 +9,7 @@ import org.bukkit.metadata.MetadataValue;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -70,7 +71,7 @@ public class VanishChecker {
      * @return The filtered list, only keeping vanished players.
      */
     public static List<Player> getVanishedPlayersFromList(@NotNull List<Player> players) {
-        return players.stream().filter(VanishChecker::isVanished).collect(Collectors.toList());
+        return players.stream().filter(VanishChecker::isVanished).collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -78,7 +79,7 @@ public class VanishChecker {
      * @return A list of all online players who are vanished.
      */
     public static List<Player> getVanishedOnlinePlayers() {
-        return Bukkit.getOnlinePlayers().stream().filter(VanishChecker::isVanished).collect(Collectors.toList());
+        return Bukkit.getOnlinePlayers().stream().filter(VanishChecker::isVanished).collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -87,7 +88,7 @@ public class VanishChecker {
      * @return The filtered list, only keeping visible players.
      */
     public static List<Player> getVisiblePlayersFromList(@NotNull List<Player> players) {
-        return players.stream().filter(player -> !isVanished(player)).collect(Collectors.toList());
+        return players.stream().filter(player -> !isVanished(player)).collect(Collectors.toCollection(ArrayList::new));
     }
 
     /**
@@ -95,7 +96,7 @@ public class VanishChecker {
      * @return A list of all online players who are visible.
      */
     public static List<Player> getVisibleOnlinePlayers() {
-        return Bukkit.getOnlinePlayers().stream().filter(player -> !isVanished(player)).collect(Collectors.toList());
+        return Bukkit.getOnlinePlayers().stream().filter(player -> !isVanished(player)).collect(Collectors.toCollection(ArrayList::new));
     }
 
 }
