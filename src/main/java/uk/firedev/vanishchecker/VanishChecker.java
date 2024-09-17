@@ -26,8 +26,7 @@ public class VanishChecker {
     public static boolean isEssentialsVanished(@NotNull Player player) {
         if (Bukkit.getPluginManager().isPluginEnabled("Essentials")) {
             Plugin plugin = Bukkit.getPluginManager().getPlugin("Essentials");
-            if (plugin instanceof Essentials) {
-                Essentials essentials = (Essentials) plugin;
+            if (plugin instanceof Essentials essentials) {
                 User user = essentials.getUser(player);
                 if (user != null) {
                     return user.isVanished();
