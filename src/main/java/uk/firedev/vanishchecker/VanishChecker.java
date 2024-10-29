@@ -7,7 +7,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.plugin.Plugin;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +14,10 @@ import java.util.stream.Collectors;
 
 public class VanishChecker {
 
-    public static boolean isVanished(@NotNull Player player) {
+    public static boolean isVanished(Player player) {
+        if (player == null) {
+            return false;
+        }
         return (isMetadataVanished(player) || isEssentialsVanished(player) || isCMIVanished(player));
     }
 
@@ -24,8 +26,8 @@ public class VanishChecker {
      * @param player The player to check
      * @return Whether the player is vanished via the EssentialsX plugin.
      */
-    public static boolean isEssentialsVanished(@NotNull Player player) {
-        if (Bukkit.getPluginManager().isPluginEnabled("Essentials")) {
+    public static boolean isEssentialsVanished(Player player) {
+        if (player != null && Bukkit.getPluginManager().isPluginEnabled("Essentials")) {
             Plugin plugin = Bukkit.getPluginManager().getPlugin("Essentials");
             if (plugin instanceof Essentials essentials) {
                 User user = essentials.getUser(player);
@@ -42,8 +44,8 @@ public class VanishChecker {
      * @param player The player to check
      * @return Whether the player is vanished via the CMI plugin.
      */
-    public static boolean isCMIVanished(@NotNull Player player) {
-        if (Bukkit.getPluginManager().isPluginEnabled("CMI")) {
+    public static boolean isCMIVanished(Player player) {
+        if (player != null && Bukkit.getPluginManager().isPluginEnabled("CMI")) {
             CMIUser user = CMIUser.getUser(player);
             if (user != null) {
                 return user.isCMIVanished();
@@ -58,7 +60,10 @@ public class VanishChecker {
      * @param player The player to check
      * @return Whether the player is marked as vanished in their Metadata.
      */
-    public static boolean isMetadataVanished(@NotNull Player player) {
+    public static boolean isMetadataVanished(Player player) {
+        if (player == null) {
+            return false;
+        }
         for (MetadataValue meta : player.getMetadata("vanished")) {
             if (meta.asBoolean()) return true;
         }
@@ -70,7 +75,10 @@ public class VanishChecker {
      * @param players The list to filter.
      * @return The filtered list, only keeping vanished players.
      */
-    public static List<Player> getVanishedPlayersFromList(@NotNull List<Player> players) {
+    public static List<Player> getVanishedPlayersFromList(List<Player> players) {
+        if (players == null) {
+            return new ArrayList<>();
+        }
         return players.stream().filter(VanishChecker::isVanished).collect(Collectors.toCollection(ArrayList::new));
     }
 
@@ -87,7 +95,10 @@ public class VanishChecker {
      * @param players The list to filter.
      * @return The filtered list, only keeping visible players.
      */
-    public static List<Player> getVisiblePlayersFromList(@NotNull List<Player> players) {
+    public static List<Player> getVisiblePlayersFromList(List<Player> players) {
+        if (players == null) {
+            return new ArrayList<>();
+        }
         return players.stream().filter(player -> !isVanished(player)).collect(Collectors.toCollection(ArrayList::new));
     }
 

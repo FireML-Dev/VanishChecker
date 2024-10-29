@@ -18,12 +18,10 @@ dependencies {
     compileOnly(libs.essentialsx) {
         exclude("*", "*")
     }
-
-    implementation(libs.annotations)
 }
 
 group = "uk.firedev"
-version = "1.0.2"
+version = "1.0.3"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 publishing {
