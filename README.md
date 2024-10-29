@@ -13,11 +13,11 @@ repositories {
 
 dependencies {
     // The following version may not be the latest. Please check it before using.
-    implementation("uk.firedev:VanishChecker:1.0.1")
+    implementation("uk.firedev:VanishChecker:1.0.3")
 }
 
 tasks.shadowJar {
-    relocate("uk.firedev.vanishchecker", "uk.firedev.daisylib.utils.vanishchecker")
+    relocate("uk.firedev.vanishchecker", "[package name here].vanishchecker")
 }
 ```
 
@@ -32,14 +32,14 @@ tasks.shadowJar {
         <groupId>uk.firedev</groupId>
         <artifactId>VanishChecker</artifactId>
         <!--The following version may not be the latest. Please check it before using.-->
-        <version>1.0.1</version>
+        <version>1.0.3</version>
         <scope>compile</scope>
     </dependency>
 
     <relocations>
         <relocation>
             <pattern>uk.firedev.vanishchecker</pattern>
-            <shadedPattern>uk.firedev.daisylib.utils.vanishchecker</shadedPattern>
+            <shadedPattern>[package name here].vanishchecker</shadedPattern>
         </relocation>
     </relocations>
 ```
