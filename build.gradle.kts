@@ -7,14 +7,14 @@ repositories {
     mavenCentral()
     maven("https://hub.spigotmc.org/nexus/content/repositories/public/")
     maven("https://repo.essentialsx.net/releases/")
-    maven("https://repo.firedev.uk/repository/maven-public/")
 }
 
 dependencies {
     compileOnly(libs.spigot) {
         exclude("*", "*")
     }
-    compileOnly(libs.cmi)
+    // CMI-API
+    compileOnly(files("$projectDir/libs/CMIAPI-9.7.4.1.jar"))
     compileOnly(libs.essentialsx) {
         exclude("*", "*")
     }
