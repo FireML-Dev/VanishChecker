@@ -2,11 +2,11 @@ package uk.firedev.vanishchecker;
 
 import com.Zrips.CMI.Containers.CMIUser;
 import com.earth2me.essentials.Essentials;
-import com.earth2me.essentials.User;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.MetadataValue;
 import org.bukkit.plugin.Plugin;
+import org.sayandev.sayanvanish.api.SayanVanishAPI;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class VanishChecker {
         if (player == null) {
             return false;
         }
-        return (isMetadataVanished(player) || isEssentialsVanished(player) || isCMIVanished(player));
+        return (isMetadataVanished(player) || isEssentialsVanished(player) || isCMIVanished(player) || isSayanVanished(player));
     }
 
     /**
@@ -30,7 +30,7 @@ public class VanishChecker {
         if (player != null && Bukkit.getPluginManager().isPluginEnabled("Essentials")) {
             Plugin plugin = Bukkit.getPluginManager().getPlugin("Essentials");
             if (plugin instanceof Essentials essentials) {
-                User user = essentials.getUser(player);
+                com.earth2me.essentials.User user = essentials.getUser(player);
                 if (user != null) {
                     return user.isVanished();
                 }
@@ -49,6 +49,21 @@ public class VanishChecker {
             CMIUser user = CMIUser.getUser(player);
             if (user != null) {
                 return user.isCMIVanished();
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Checks whether a player is vanished via the SayanVanish plugin.
+     * @param player The player to check
+     * @return Whether the player is vanished via the SayanVanish plugin.
+     */
+    public static boolean isSayanVanished(Player player) {
+        if (player != null && Bukkit.getPluginManager().isPluginEnabled("SayanVanish")) {
+            org.sayandev.sayanvanish.api.User user = SayanVanishAPI.user(player.getUniqueId());
+            if (user != null) {
+                return user.isVanished();
             }
         }
         return false;
