@@ -15,6 +15,11 @@ import java.util.stream.Collectors;
 
 public class VanishChecker {
 
+    /**
+     * Checks if a player is vanished in any supported plugins.
+     * @param player The player to check
+     * @return Whether the player is vanished in any supported plugins.
+     */
     public static boolean isVanished(Player player) {
         if (player == null) {
             return false;
