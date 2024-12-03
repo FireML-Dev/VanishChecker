@@ -8,6 +8,7 @@ repositories {
     maven("https://hub.spigotmc.org/nexus/content/repositories/public/")
     maven("https://repo.essentialsx.net/releases/")
     maven("https://repo.sayandev.org/snapshots")
+    maven("https://repo.repsy.io/mvn/quantiom/minecraft")
 }
 
 dependencies {
@@ -20,6 +21,9 @@ dependencies {
         exclude("*", "*")
     }
     compileOnly(libs.sayanvanish) {
+        exclude("*", "*")
+    }
+    compileOnly(libs.advancedvanish) {
         exclude("*", "*")
     }
 }
