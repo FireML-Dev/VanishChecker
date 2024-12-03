@@ -2,6 +2,8 @@ package uk.firedev.vanishchecker;
 
 import com.Zrips.CMI.Containers.CMIUser;
 import com.earth2me.essentials.Essentials;
+import me.quantiom.advancedvanish.AdvancedVanish;
+import me.quantiom.advancedvanish.util.AdvancedVanishAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.metadata.MetadataValue;
@@ -18,7 +20,12 @@ public class VanishChecker {
         if (player == null) {
             return false;
         }
-        return (isMetadataVanished(player) || isEssentialsVanished(player) || isCMIVanished(player) || isSayanVanished(player));
+        return (isMetadataVanished(player)
+                        || isEssentialsVanished(player)
+                        || isCMIVanished(player)
+                        || isSayanVanished(player)
+                        || isAdvancedVanished(player)
+        );
     }
 
     /**
@@ -65,6 +72,18 @@ public class VanishChecker {
             if (user != null) {
                 return user.isVanished();
             }
+        }
+        return false;
+    }
+
+    /**
+     * Checks whether a player is vanished via the AdvancedVanish plugin.
+     * @param player The player to check
+     * @return Whether the player is vanished via the SayanVanish plugin.
+     */
+    public static boolean isAdvancedVanished(Player player) {
+        if (player != null && Bukkit.getPluginManager().isPluginEnabled("AdvancedVanish")) {
+            return AdvancedVanishAPI.INSTANCE.isPlayerVanished(player);
         }
         return false;
     }
