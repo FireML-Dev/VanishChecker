@@ -2,7 +2,6 @@ package uk.firedev.vanishchecker;
 
 import com.Zrips.CMI.Containers.CMIUser;
 import com.earth2me.essentials.Essentials;
-import me.quantiom.advancedvanish.AdvancedVanish;
 import me.quantiom.advancedvanish.util.AdvancedVanishAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -29,9 +28,9 @@ public class VanishChecker {
     }
 
     /**
-     * Checks whether a player is vanished via the EssentialsX plugin.
+     * Checks whether a player is vanished via the <a href="https://www.spigotmc.org/resources/essentialsx.9089/">EssentialsX</a> plugin.
      * @param player The player to check
-     * @return Whether the player is vanished via the EssentialsX plugin.
+     * @return Whether the player is vanished via the <a href="https://www.spigotmc.org/resources/essentialsx.9089/">EssentialsX</a> plugin.
      */
     public static boolean isEssentialsVanished(Player player) {
         if (player != null && Bukkit.getPluginManager().isPluginEnabled("Essentials")) {
@@ -47,9 +46,9 @@ public class VanishChecker {
     }
 
     /**
-     * Checks whether a player is vanished via the CMI plugin.
+     * Checks whether a player is vanished via the <a href="https://www.spigotmc.org/resources/cmi-300-commands-insane-kits-portals-essentials-economy-mysql-sqlite-much-more.3742">CMI</a> plugin.
      * @param player The player to check
-     * @return Whether the player is vanished via the CMI plugin.
+     * @return Whether the player is vanished via the <a href="https://www.spigotmc.org/resources/cmi-300-commands-insane-kits-portals-essentials-economy-mysql-sqlite-much-more.3742">CMI</a> plugin.
      */
     public static boolean isCMIVanished(Player player) {
         if (player != null && Bukkit.getPluginManager().isPluginEnabled("CMI")) {
@@ -62,9 +61,9 @@ public class VanishChecker {
     }
 
     /**
-     * Checks whether a player is vanished via the SayanVanish plugin.
+     * Checks whether a player is vanished via the <a href="https://www.spigotmc.org/resources/sayanvanish-1-8-1-21.105992/">SayanVanish</a> plugin.
      * @param player The player to check
-     * @return Whether the player is vanished via the SayanVanish plugin.
+     * @return Whether the player is vanished via the <a href="https://www.spigotmc.org/resources/sayanvanish-1-8-1-21.105992/">SayanVanish</a> plugin.
      */
     public static boolean isSayanVanished(Player player) {
         if (player != null && Bukkit.getPluginManager().isPluginEnabled("SayanVanish")) {
@@ -77,9 +76,9 @@ public class VanishChecker {
     }
 
     /**
-     * Checks whether a player is vanished via the AdvancedVanish plugin.
+     * Checks whether a player is vanished via the <a href="https://www.spigotmc.org/resources/advancedvanish.86036/">AdvancedVanish</a> plugin.
      * @param player The player to check
-     * @return Whether the player is vanished via the SayanVanish plugin.
+     * @return Whether the player is vanished via the <a href="https://www.spigotmc.org/resources/advancedvanish.86036/">AdvancedVanish</a> plugin.
      */
     public static boolean isAdvancedVanished(Player player) {
         if (player != null && Bukkit.getPluginManager().isPluginEnabled("AdvancedVanish")) {
