@@ -13,7 +13,7 @@ repositories {
 
 dependencies {
     // The following version may not be the latest. Please check it before using.
-    implementation("uk.firedev:VanishChecker:1.0.3")
+    implementation("uk.firedev:VanishChecker:1.0.4")
 }
 
 tasks.shadowJar {
@@ -32,7 +32,7 @@ tasks.shadowJar {
         <groupId>uk.firedev</groupId>
         <artifactId>VanishChecker</artifactId>
         <!--The following version may not be the latest. Please check it before using.-->
-        <version>1.0.3</version>
+        <version>1.0.4</version>
         <scope>compile</scope>
     </dependency>
 

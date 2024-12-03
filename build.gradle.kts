@@ -29,7 +29,7 @@ dependencies {
 }
 
 group = "uk.firedev"
-version = "1.0.4-SNAPSHOT"
+version = "1.0.4"
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 publishing {
