@@ -7,6 +7,7 @@ repositories {
     mavenCentral()
     maven("https://hub.spigotmc.org/nexus/content/repositories/public/")
     maven("https://repo.essentialsx.net/releases/")
+    maven("https://repo.sayandev.org/snapshots")
 }
 
 dependencies {
@@ -16,6 +17,9 @@ dependencies {
     // CMI-API
     compileOnly(files("$projectDir/libs/CMIAPI-9.7.4.1.jar"))
     compileOnly(libs.essentialsx) {
+        exclude("*", "*")
+    }
+    compileOnly(libs.sayanvanish) {
         exclude("*", "*")
     }
 }
