@@ -8,7 +8,7 @@ It is required to shade this into your plugin for it to work.
 ##### Gradle (Kotlin)
 ```kotlin
 repositories {
-    maven("https://repo.firedev.uk/repository/maven-public/")
+    maven("https://repo.codemc.io/repository/FireML/")
 }
 
 dependencies {
@@ -25,7 +25,7 @@ tasks.shadowJar {
 ```xml
     <repository>
         <id>firedev-repo</id>
-        <url>https://repo.firedev.uk/repository/maven-public/</url>
+        <url>https://repo.codemc.io/repository/FireML/</url>
     </repository>
 
     <dependency>
