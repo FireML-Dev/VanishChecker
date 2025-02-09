@@ -16,7 +16,7 @@ dependencies {
         exclude("*", "*")
     }
     // CMI-API
-    compileOnly(files("$projectDir/libs/CMIAPI-9.7.4.1.jar"))
+    compileOnly(files("$projectDir/libs/CMIAPI.jar"))
     compileOnly(libs.essentialsx) {
         exclude("*", "*")
     }
