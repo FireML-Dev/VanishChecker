@@ -43,3 +43,10 @@ tasks.shadowJar {
         </relocation>
     </relocations>
 ```
+
+##### Dependencies
+You must add the following (soft)dependencies to your plugin to prevent classloader errors:
+- "Essentials"
+- "CMI"
+- "SayanVanish"
+- "AdvancedVanish"
