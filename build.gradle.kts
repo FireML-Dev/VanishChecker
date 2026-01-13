@@ -29,7 +29,7 @@ dependencies {
 }
 
 group = "uk.firedev"
-version = "1.0.6"
+version = properties["project-version"] as String
 java.sourceCompatibility = JavaVersion.VERSION_17
 
 publishing {
